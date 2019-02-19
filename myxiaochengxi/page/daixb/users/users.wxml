@@ -1,0 +1,38 @@
+<view class='container'>
+  <view class='page-body'>
+      <view class="index-hd" >
+      
+          <view class="index-hd-item">
+            
+             <button wx:if="{{!userAuth}}" open-type="getUserInfo" bindgetuserinfo="getWxUserInfo">授权</button>
+             <view style="flex-direction:row;display:flex;text-align: center;">
+                  <view style='padding:40rpx'>
+                     <image class="user-logo" src="{{userLogo}}"></image>
+                  </view>
+                  <view style='padding:40rpx 10rpx;text-align:left'>
+                     <view class='user-font'>{{userName}}</view>
+                     <view class='user-font'>{{userPhone}}</view>
+                  </view>
+                   <view style='padding:40rpx 20rpx;margin:0 0 0 110rpx'>
+                     <image class="user-logo" src="../resource/image/logo.jpg"></image>
+                  </view>
+             </view>
+          </view>
+         
+      </view>
+    <view class="index-bd">
+          <view class="kind-list">
+            <block wx:for-items="{{lists}}" wx:key="{{item.id}}">
+              <view class="kind-list-item">
+                <view id="{{item.id}}" class="kind-list-item-hd">
+                  <view id="bindtap_{{item.id}}" class="kind-list-text" bindtap='clickItem'>{{item.name}}</view>
+                  <image class="kind-list-img" src="{{item.url}}"></image>
+                </view>
+              </view>
+            </block>
+          </view>
+    </view>
+  </view>
+</view>
+
+

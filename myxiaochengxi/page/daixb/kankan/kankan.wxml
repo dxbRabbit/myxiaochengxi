@@ -1,0 +1,30 @@
+<view class='container'>
+  <view class='page-body'>
+    <view  class='page-head-alias' >
+
+      <view class='weui-cells' style='display:flex'> 
+      <icon class="icon-small" type="search" size="20" style='padding:30rpx' bindtap='bindClickSearch'></icon>
+        <input class="weui-input" value="{{searchInputValue}}"  bindinput='bindKeySearchInput'  maxlength='20' placeholder='搜索（输入名称或作者）'></input>
+            <!-- <image class="kind-list-img"  bindtap='cleanSearchInput'
+                        src="../../../page/component/resources/kind/map.png"></image> -->
+        <icon bindtap='cleanSearchInput' class="icon-small" style='padding:30rpx 35rpx' type="cancel" size="20"></icon>
+      </view>
+         
+  
+    </view>
+    <view class="index-bd">
+          <view class="kind-list">
+            <block wx:for-items="{{lists}}" wx:key="{{item.id}}">
+              <view class="kind-list-item">
+                <view id="{{item.id}}" class="kind-list-item-hd">
+                  <view id="bindtap_{{item.id}}" class="kind-list-text" bindtap='clickItem'>{{item.name}}</view>
+                  <image class="kind-list-img" src="{{item.url}}"></image>
+                </view>
+              </view>
+            </block>
+          </view>
+    </view>
+  </view>
+</view>
+
+
